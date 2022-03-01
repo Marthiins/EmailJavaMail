@@ -13,7 +13,7 @@ import javax.mail.internet.MimeMessage;
 
 public class ObjetoEnviaEmail {
 
-	private String userName = "";
+	private String userName = "sergio.marttthins@gmail.com";
 	private String senha = "";
 	private String listaDestinatarios = "";
 	private String nomeRemetente = "";
@@ -30,7 +30,7 @@ public class ObjetoEnviaEmail {
 	}
 
 	/* Metodo sem retorno */
-	public void enviarEmail() throws Exception {
+	public void enviarEmail(boolean envioHtml) throws Exception {
 
 		Properties properties = new Properties();
 
@@ -53,12 +53,15 @@ public class ObjetoEnviaEmail {
 		Address[] toUser = InternetAddress.parse(listaDestinatarios);/* Endereço array dos destinatarios */
 
 		Message message = new MimeMessage(session);
-		message.setFrom(new InternetAddress(userName,nomeRemetente));/* Quem esta enviando */
+		message.setFrom(new InternetAddress(userName, nomeRemetente));/* Quem esta enviando */
 		message.setRecipients(Message.RecipientType.TO, toUser);
 		message.setSubject(assuntoEmail);/* Assunto do email */
-		message.setText(textoEmail);/* Corpo email */
 
+		if (envioHtml) {
+			message.setContent(textoEmail, "text/html; charset=utf-8");/* SetContent passa o conteudo e o tipo */
+		} else {
+			message.setText(textoEmail);/* Corpo email */
+		}
 		Transport.send(message);/* Objeto de mensagem */
 	}
-
 }
