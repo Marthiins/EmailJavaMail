@@ -18,7 +18,7 @@ public class AppTest {
 		stringBuilderTextoEmail.append("Para ter acesso clique no botão abaixo. <br/><br/>");
 		
 		stringBuilderTextoEmail.append("<b>login:</b> sergio.marthiins@mail.com<br>");
-		stringBuilderTextoEmail.append("<b>senha:</b> ><br><br/>");
+		stringBuilderTextoEmail.append("<b>senha:</b> <br><br/>");
 	
 		
 		stringBuilderTextoEmail.append("<a target=\"_blank\" href=\"https://projetojavaweb.com/certificado-aluno/login\" style=\"color:#2525a7; padding:14px 25px; text-align:center; text-decoration:none; display:inline-block; border-radius:30px; font-size:20px; font-family:courier; border: 3px solid green; background-color:#99DA39;\">Acessar Portal do aluno</a><br/><br/>");
